@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpPortal", "OpPortal\OpPortal.csproj", "{FFEC60CC-AE70-4188-A98C-A102E69AE2ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFEC60CC-AE70-4188-A98C-A102E69AE2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEC60CC-AE70-4188-A98C-A102E69AE2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEC60CC-AE70-4188-A98C-A102E69AE2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEC60CC-AE70-4188-A98C-A102E69AE2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76551956-4856-48BF-8F1A-B34B05CA5B9E}
+	EndGlobalSection
+EndGlobal
