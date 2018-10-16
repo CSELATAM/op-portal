@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OpPortal.Services;
 
 namespace OpPortal
 {
@@ -21,6 +22,8 @@ namespace OpPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var svc = new DeployService();
+            
             services.AddMvc();
         }
 
