@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using k8s;
 using k8s.Models;
+using OpPortal.Models;
 
 namespace OpPortal.Services
 {
@@ -32,6 +33,17 @@ namespace OpPortal.Services
         public string Create(string filename)
         {
             return CreateDeployment(filename);
+        }
+
+        public IEnumerable<TenantDescription> ListTenants()
+        {
+            var appList = new List<TenantDescription>{
+                new TenantDescription { Id = "ten1", Name = "App1" },
+                new TenantDescription { Id = "ten2", Name = "App2" },
+                new TenantDescription { Id = "ten3", Name = "App3" }
+            };
+
+            return appList;
         }
 
         string CreateDeployment(string filename)

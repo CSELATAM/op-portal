@@ -5,13 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OpPortal.Models;
+using OpPortal.Services;
 
 namespace OpPortal.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index([FromServices]DeployService deployService)
         {
+            ViewBag.AppList = deployService.ListTenants();
             return View();
         }
 

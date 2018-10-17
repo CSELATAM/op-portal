@@ -22,9 +22,7 @@ namespace OpPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var svc = new DeployService();
-            svc.Create("Definitions/deploy.yaml");
-
+            services.AddSingleton<DeployService>();
             services.AddMvc();
         }
 
