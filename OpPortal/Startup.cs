@@ -23,7 +23,8 @@ namespace OpPortal
         public void ConfigureServices(IServiceCollection services)
         {
             var svc = new DeployService();
-            
+            svc.Create("Definitions/deploy.yaml");
+
             services.AddMvc();
         }
 
