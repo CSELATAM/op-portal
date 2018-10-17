@@ -30,25 +30,28 @@ namespace OpPortal.Services
             this._client = new Kubernetes(config);
         }
 
-        public string Create(string filename)
+        public string Create(string tenantName, string filename)
         {
-            return CreateDeployment(filename);
+            return CreateDeployment(tenantName, filename);
         }
 
         public IEnumerable<TenantDescription> ListTenants()
         {
-            var appList = new List<TenantDescription>{
-                new TenantDescription { Id = "ten1", Name = "App1" },
-                new TenantDescription { Id = "ten2", Name = "App2" },
-                new TenantDescription { Id = "ten3", Name = "App3" }
-            };
+            var deployList = _client.ListNamespacedDeployment(DEFAULT_NAMESPACE, labelSelector: "app=teste1");
 
+            var appList = deployList.Items.Select(d => new TenantDescription
+            {
+                Id = d.Metadata.Uid,
+                Name = d.Metadata.Name
+            });
+            
             return appList;
         }
 
-        string CreateDeployment(string filename)
+        string CreateDeployment(string tenantName, string filename)
         {
             var yml = Yaml.LoadFromFileAsync<V1Deployment>(filename).Result;
+            yml.Metadata.Name = tenantName;
 
             var ymlResult = _client.CreateNamespacedDeployment(yml, DEFAULT_NAMESPACE);
 
