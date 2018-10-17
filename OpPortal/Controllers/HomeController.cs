@@ -11,10 +11,19 @@ namespace OpPortal.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index([FromServices]DeployService deployService)
+        [HttpGet(Name = "Home_Index")]
+        public IActionResult Index([FromServices]TenantService tenantService)
         {
-            ViewBag.AppList = deployService.ListTenants();
+            ViewBag.AppList = tenantService.List();
             return View();
+        }
+
+        [HttpPost(Name= "Home_CreateTenant")]
+        public IActionResult CreateTenant([FromForm]string tenantName, [FromServices]TenantService tenantService)
+        {
+            tenantService.Create(tenantName);
+
+            return Redirect("/");
         }
 
         public IActionResult About()

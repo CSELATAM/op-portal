@@ -23,6 +23,7 @@ namespace OpPortal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<DeployService>();
+            services.AddSingleton<TenantService>();
             services.AddMvc();
         }
 
